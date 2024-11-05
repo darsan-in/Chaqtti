@@ -10,9 +10,9 @@
   },
   "author": "DARSAN <hello@darsan.in>",
   "maintainers": [
-   "DARSAN <hello@darsan.in>"
+    "DARSAN <hello@darsan.in>"
   ],
-  "license":"Apache-2.0",
+  "license": "Apache-2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -20,6 +20,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.1",
     "autoprefixer": "^10.4.19",
     "favicons": "^7.2.0",
     "next": "14.2.4",
@@ -32,11 +33,11 @@
     "@types/react": "^18.3.3",
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
-    "ts-node": "10.9.2",
-    "typescript": "5.4.5",
-	"sass": "^1.77.6",
+    "postcss": "^8.4.39",
+    "sass": "^1.77.6",
     "tailwindcss": "^3.4.4",
-	"postcss": "^8.4.39"
+    "ts-node": "10.9.2",
+    "typescript": "5.4.5"
   },
   "homepage": ""
 }

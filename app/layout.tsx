@@ -1,5 +1,6 @@
-import "@/styles/globals.scss";
+import Header from "components/header";
 import { Metadata } from "next";
+import "styles/globals.scss";
 
 export const metaData: Metadata = {
 	title: "Chaqtti",
@@ -15,7 +16,10 @@ export default function RootLayout({
 	return (
 		<html>
 			<head></head>
-			<body>{children}</body>
+			<body>
+				<Header />
+				{children}
+			</body>
 		</html>
 	);
 }
