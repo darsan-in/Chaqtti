@@ -1,0 +1,59 @@
+{
+	"compilerOptions": {
+		"jsx": "preserve",
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"baseUrl": ".",
+		"rootDir": ".",
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noFallthroughCasesInSwitch": true,
+		"strict": true,
+		"strictBindCallApply": true,
+		"strictNullChecks": true,
+		"alwaysStrict": true,
+		"strictFunctionTypes": true,
+		"allowUmdGlobalAccess": true,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"preserveConstEnums": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+		"pretty": false,
+		"noUnusedLocals": true,
+		"noImplicitOverride": false,
+		"noUnusedParameters": true,
+		"noUncheckedIndexedAccess": false,
+		"sourceMap": false,
+		"removeComments": true,
+		"skipLibCheck": true,
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
+		],
+		"allowJs": true,
+		"noEmit": true,
+		"incremental": true,
+		"isolatedModules": true,
+		"plugins": [
+			{
+				"name": "next"
+			}
+		]
+	},
+	"exclude": [
+		"node_modules",
+		"test"
+	],
+	"include": [
+		"next-env.d.ts",
+		"./out/types/**/*.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts"
+	]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "chaqtti",
+  "displayName": "Chaqtti",
+  "version": "0.0.1a",
+  "description": "A responsive web-based chat application using MQTT protocol for real-time messaging. Features user authentication, dynamic user search and sorting, error handling, and CSS animations.",
+  "preferGlobal": true,
+  "repository": "https://gitlab.com/darsan.in/Chaqtti",
+  "bugs": {
+    "url": "https://gitlab.com/darsan.in/Chaqtti/issues"
+  },
+  "author": "DARSAN <hello@darsan.in>",
+  "maintainers": [
+   "DARSAN <hello@darsan.in>"
+  ],
+  "license":"Apache-2.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "favicons": "^7.2.0",
+    "next": "14.2.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.8",
+    "@types/react": "^18.3.3",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.7",
+    "ts-node": "10.9.2",
+    "typescript": "5.4.5",
+	"sass": "^1.77.6",
+    "tailwindcss": "^3.4.4",
+	"postcss": "^8.4.39"
+  },
+  "homepage": ""
+}

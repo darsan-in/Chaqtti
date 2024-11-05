@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply tracking-wide;
+	}
+}
+
+::-webkit-scrollbar {
+	display: none;
+	/* Safari and Chrome */
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body,
+main {
+	/* Optional: Hide scrollbar for Firefox */
+	scrollbar-width: none;
+	transition: all;
+	transition-duration: 700ms;
+	overflow-x: hidden;
+}
+
+* {
+	box-sizing: content-box;
+}
