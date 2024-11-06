@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { BsSearch } from "react-icons/bs";
 import UserProfile from "./user-profile";
 
 export default function Header() {
@@ -82,7 +83,12 @@ export default function Header() {
 								className={`md:text-white ${
 									state ? "text-black" : "text-white"
 								}`}>
-								<a href="/search">Find Users</a>
+								<a
+									href="/search"
+									className="flex justify-center items-center underline text-primary md:text-white md:no-underline md:mr-2">
+									<BsSearch className="mr-2" />
+									Find Users
+								</a>
 							</li>
 							<UserProfile mobMenuActive={state} />
 						</ul>

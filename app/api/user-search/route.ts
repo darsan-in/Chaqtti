@@ -33,7 +33,7 @@ export async function POST(req: Response) {
 			{
 				message: `${matchedUsers.length} users found`,
 				success: true,
-				usersList: JSON.stringify(matchedUsers),
+				usersList: matchedUsers,
 			},
 			{ status: 200 },
 		);

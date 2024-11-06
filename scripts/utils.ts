@@ -39,3 +39,13 @@ export function getCookie(name: string) {
 export function deleteCookie(name: string) {
 	document.cookie = `${encodeURIComponent(name)}=; Max-Age=0; Path=/;`;
 }
+
+export default function sortAlphabatically(
+	sourceList: nonSensitiveUserMeta[],
+	sort: boolean,
+) {
+	const result = sourceList.sort((a, b) =>
+		sort ? a.uid.localeCompare(b.uid) : b.uid.localeCompare(a.uid),
+	);
+	return result;
+}

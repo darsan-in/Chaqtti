@@ -2,13 +2,15 @@
 
 import { BsSortAlphaDown, BsSortAlphaDownAlt } from "react-icons/bs";
 import { searchUser } from "scripts/postman";
-import { nonSensitiveUserMeta } from "scripts/utils";
+import sortAlphabatically, { nonSensitiveUserMeta } from "scripts/utils";
 
 // Search Box component
 function SearchBox({
 	setUserList,
+	isAscending,
 }: {
 	setUserList: (userList: nonSensitiveUserMeta[]) => void;
+	isAscending: boolean;
 }) {
 	async function query() {
 		/* @ts-ignore */
@@ -17,8 +19,15 @@ function SearchBox({
 		const queryResponse = await searchUser({ userQuery: userQuery });
 
 		if (queryResponse.success) {
-			localStorage.setItem("userslist", queryResponse.usersList);
-			setUserList(JSON.parse(queryResponse.usersList));
+			const sortedList = sortAlphabatically(
+				queryResponse.usersList,
+				isAscending,
+			);
+
+			//Storing users list in current sort order for pagination
+			localStorage.setItem("userslist", JSON.stringify(sortedList));
+
+			setUserList(sortedList);
 		} else {
 			console.error(queryResponse.message);
 			localStorage.setItem("userslist", "[]");
@@ -68,6 +77,7 @@ export default function SearchControl({
 	return (
 		<div className="flex flex-col items-center w-[96%] lg:w-[50%] mx-auto mt-10 p-2 justify-between space-y-6">
 			<SearchBox
+				isAscending={isAscending}
 				setUserList={(userlist: nonSensitiveUserMeta[]) => {
 					setUserList(userlist);
 				}}
@@ -75,20 +85,20 @@ export default function SearchControl({
 			<div className="flex items-center justify-center space-x-2 relative">
 				<p className="font-medium">Sort By :</p>
 				{isAscending ? (
-					<BsSortAlphaDown
-						size={25}
+					<BsSortAlphaDownAlt
 						onClick={() => {
 							setAscending(false);
 						}}
+						size={25}
 						className="w-6 h-6 bg-primary text-white p-[2px] rounded-md"
 						style={{ cursor: "pointer" }}
 					/>
 				) : (
-					<BsSortAlphaDownAlt
+					<BsSortAlphaDown
+						size={25}
 						onClick={() => {
 							setAscending(true);
 						}}
-						size={25}
 						className="w-6 h-6 bg-primary text-white p-[2px] rounded-md"
 						style={{ cursor: "pointer" }}
 					/>

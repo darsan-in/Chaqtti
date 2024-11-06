@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { readUsers } from "scripts/db-manager";
 import { UserMeta } from "scripts/utils";
 
-export async function POST(_req: Response) {
+export async function GET(_req: Response) {
 	try {
 		const users: UserMeta[] = readUsers();
 
@@ -10,7 +10,7 @@ export async function POST(_req: Response) {
 			{
 				message: `${users.length} users, totally`,
 				success: true,
-				usersList: JSON.stringify(users),
+				registeredUsers: users,
 			},
 			{ status: 200 },
 		);

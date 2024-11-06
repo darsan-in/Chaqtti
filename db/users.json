@@ -77,13 +77,6 @@
     "uid": "@shrikanth.cresteem.com"
   },
   {
-    "name": "LEELA",
-    "email": "leela@cresteem.com",
-    "password": "$2b$10$ZH8dSYZK8sNTBxplAhD.tue3q3zdf9Vo5pRj3aHUpZdGs21fYUg0a",
-    "profilePicture": "/user-profile-images/cat.jpg",
-    "uid": "@leela.cresteem.com"
-  },
-  {
     "name": "RAMESHWARAN",
     "email": "rameshwaran@cresteem.com",
     "password": "$2b$10$ZH8dSYZK8sNTBxplAhD.tue3q3zdf9Vo5pRj3aHUpZdGs21fYUg0a",
@@ -117,13 +110,6 @@
     "password": "$2b$10$ZH8dSYZK8sNTBxplAhD.tue3q3zdf9Vo5pRj3aHUpZdGs21fYUg0a",
     "profilePicture": "/user-profile-images/cat.jpg",
     "uid": "@sashwati.cresteem.com"
-  },
-  {
-    "name": "SARAVAN",
-    "email": "saravan@cresteem.com",
-    "password": "$2b$10$ZH8dSYZK8sNTBxplAhD.tue3q3zdf9Vo5pRj3aHUpZdGs21fYUg0a",
-    "profilePicture": "/user-profile-images/cat.jpg",
-    "uid": "@saravan.cresteem.com"
   },
   {
     "name": "VISHWANATHA",
