@@ -3,7 +3,7 @@ const nextConfig = {
 	devIndicators: {
 		buildActivityPosition: "top-right",
 	},
-	output: "export",
+	output: "standalone",
 	distDir: "./out",
 	basePath: "",
 	assetPrefix: "",

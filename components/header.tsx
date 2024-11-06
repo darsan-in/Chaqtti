@@ -17,12 +17,16 @@ export default function Header() {
 		<div className="flex items-center justify-between py-5 md:block">
 			<a
 				href="/"
-				className="text-2xl font-bold tracking-widest bg-lbg text-white px-6 py-3 rounded-md">
+				className={`text-2xl font-bold tracking-widest bg-lbg lg:text-white px-6 py-3 rounded-md ${
+					state ? "text-primary bg-transparent" : "text-white"
+				}`}>
 				CHAQTTI
 			</a>
 			<div className="md:hidden">
 				<button
-					className="menu-btn text-gray-800 hover:text-gray-300"
+					className={`menu-btn hover:text-gray-300 ${
+						state ? "text-black" : "text-white"
+					}`}
 					onClick={() => setState(!state)}>
 					{state ? (
 						<svg
@@ -73,8 +77,14 @@ export default function Header() {
 						className={`flex-1 items-center mt-8 md:mt-0 md:flex ${
 							state ? "block" : "hidden"
 						} `}>
-						<ul className="flex-1 justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
-							<UserProfile />
+						<ul className="flex-1 mx-auto justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 w-[90%] sm:w-[40%]">
+							<li
+								className={`md:text-white ${
+									state ? "text-black" : "text-white"
+								}`}>
+								<a href="/search">Find Users</a>
+							</li>
+							<UserProfile mobMenuActive={state} />
 						</ul>
 					</div>
 				</div>

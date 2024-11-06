@@ -1,10 +1,10 @@
-import { UserMeta } from "scripts/utils";
+import { nonSensitiveUserMeta } from "scripts/utils";
 
 function User({
 	usersMeta,
 	tabIndex,
 }: {
-	usersMeta: UserMeta;
+	usersMeta: nonSensitiveUserMeta;
 	tabIndex: number;
 }) {
 	return (
@@ -28,20 +28,22 @@ export default function UserListing({
 	usersMetaList,
 	className,
 }: {
-	usersMetaList: UserMeta[];
-	className: string;
+	usersMetaList: nonSensitiveUserMeta[];
+	className?: string;
 }) {
 	return (
 		<div className={`flex flex-col space-y-5 mx-auto ${className}`}>
-			{usersMetaList.map((usersMeta, idx) => {
-				return (
-					<User
-						usersMeta={usersMeta}
-						key={idx}
-						tabIndex={idx}
-					/>
-				);
-			})}
+			{usersMetaList.length > 0
+				? usersMetaList.map((usersMeta, idx) => {
+						return (
+							<User
+								usersMeta={usersMeta}
+								key={idx}
+								tabIndex={idx}
+							/>
+						);
+				  })
+				: ""}
 		</div>
 	);
 }
