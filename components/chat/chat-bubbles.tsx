@@ -28,7 +28,7 @@ export default function ChatBubbles({
 }) {
 	return (
 		<div className={className}>
-			<ChatIndigator classname="absolute top-0 left-0 flex justify-center bg-primary rounded-full z-[10]" />
+			<ChatIndigator classname="absolute top-0 right-0 flex justify-center bg-lbg rounded-full z-[10]" />
 			{texts.length > 0 ? (
 				texts.map((signedMessage, idx) => (
 					<ChatBubble

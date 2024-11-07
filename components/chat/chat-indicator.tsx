@@ -7,8 +7,8 @@ export default function ChatIndigator({
 }: {
 	classname?: string;
 }) {
-	const [peerMeta, setPeerMeta] = useState<nonSensitiveUserMeta | null>(
-		null,
+	const [peerMeta, setPeerMeta] = useState<nonSensitiveUserMeta>(
+		{} as nonSensitiveUserMeta,
 	);
 
 	useEffect(() => {
@@ -22,7 +22,7 @@ export default function ChatIndigator({
 
 	return (
 		<>
-			{peerMeta !== null ? (
+			{Object.keys(peerMeta).length > 0 ? (
 				<div className={classname}>
 					<User
 						firstPartyID=""

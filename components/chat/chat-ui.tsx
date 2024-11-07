@@ -2,7 +2,11 @@
 import { MqttClient } from "mqtt";
 import { useCallback, useDeferredValue, useEffect, useState } from "react";
 import { initializeMQTTClient } from "scripts/mqtt-client";
-import { nonSensitiveUserMeta, UserMeta } from "scripts/utils";
+import {
+	generateUniqueTopic,
+	nonSensitiveUserMeta,
+	UserMeta,
+} from "scripts/utils";
 import ChatBubbles from "./chat-bubbles";
 import ChatInput from "./chat-input";
 import Sidebar from "./sidebar";
@@ -23,10 +27,10 @@ export default function ChatUI() {
 
 	/* Subscribe to last connected user / user from search redirect (RUN ONCE)*/
 	useEffect(() => {
-		const { uid }: nonSensitiveUserMeta = JSON.parse(
+		const peermeta: nonSensitiveUserMeta = JSON.parse(
 			localStorage.getItem("peermeta") ?? "{}",
 		);
-		setTopic(uid);
+		setTopic(generateUniqueTopic(uid, peermeta.uid));
 	}, []);
 
 	// Function to handle received messages
@@ -96,7 +100,7 @@ export default function ChatUI() {
 				<ChatBubbles
 					userID={uid}
 					texts={messages}
-					className="w-full h-[80%] mx-4 lg:mx-10 pt-10 overflow-y-scroll"
+					className="w-full h-[80%] mx-4 lg:mx-10 pt-[8em] overflow-y-scroll"
 				/>
 				<ChatInput
 					userID={uid}
