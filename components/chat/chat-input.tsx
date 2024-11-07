@@ -41,6 +41,11 @@ export default function ChatInput({
 				type="text"
 				className="w-[70%] outline-none border ring-primary focus:ring-1 shadow-sm rounded-full duration-200 px-6 text-start"
 				placeholder="Type your message here"
+				onKeyDown={(event) => {
+					if (event.key === "Enter") {
+						messageDispatcher();
+					}
+				}}
 			/>
 			<button
 				onClick={messageDispatcher}

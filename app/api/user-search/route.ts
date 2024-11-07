@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { readUsers } from "scripts/db-manager";
 import { UserMeta } from "scripts/utils";
 
-export async function POST(req: Response) {
+export async function POST(req: Request) {
 	const { userQuery } = await req.json();
 
 	if (!userQuery) {

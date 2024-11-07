@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { nonSensitiveUserMeta } from "scripts/utils";
 import { readUsers } from "../../../scripts/db-manager";
 
-export async function POST(req: Response) {
+export async function POST(req: Request) {
 	const { email, password } = await req.json();
 
 	if (!email || !password) {

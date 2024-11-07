@@ -66,11 +66,26 @@ git clone https://gitlab.com/darsan.in/Chaqtti.git
 ```bash
 npm install
 ```
-- **Step 4**: Start the development server and run the app locally:
+- **Step 4**: Build:
 ```bash
-npm run dev
+npm run build
 ```
-- **Step 5**: Visit `http://localhost:3000` in your browser to see Chaqtti in action!
+- **Step 5**: Start the development server and run the app locally:
+```bash
+npm run start
+```
+- **Step 6**: Visit `http://localhost:3000` in your browser to see Chaqtti in action!
+
+- **Step 7**: Login using test accounts on two different devices or two different browsers to experience CHAQTTI.
+
+### Test Accounts
+| Username              | Password |
+|-----------------------|----------|
+| darsan@cresteem.com   | 1234     |
+| eminem@cresteem.com   | 1234     |
+| john@test.com         | 1234     |
+
+
 
 ## In-Action 🤺
 
@@ -78,6 +93,14 @@ Watch the magic unfold in this **Chaqtti** demo! Experience its seamless real-ti
 
 ![Chaqtti In Action](#)  
 _Interactive, engaging, and fluid — this is Chaqtti!_
+<details>
+  <summary>Video Demo</summary>
+  <video width="320" height="240" controls>
+   <source src="https://raw.githubusercontent.com/darsan-in/Chaqtti/refs/heads/main/demo/walkthrough.mp4" type="video/mp4">
+</video>
+</details>
+
+![Chaqtti App Home Screen](https://raw.githubusercontent.com/darsan-in/Chaqtti/refs/heads/main/demo/home.png)
 
 ## License ©️
 

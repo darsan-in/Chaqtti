@@ -79,6 +79,7 @@ export default function ChatUI() {
 	}, [topic, activeClient]);
 
 	// Set up the MQTT message listener once when client is available
+	/* @ts-ignore */
 	useEffect(() => {
 		if (activeClient) {
 			activeClient.on("message", handleMessage);

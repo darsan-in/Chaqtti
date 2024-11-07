@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { readUsers } from "scripts/db-manager";
 import { UserMeta } from "scripts/utils";
 
-export async function GET(_req: Response) {
+export async function GET(_req: Request) {
 	try {
 		const users: UserMeta[] = readUsers();
 

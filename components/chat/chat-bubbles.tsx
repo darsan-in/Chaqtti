@@ -9,7 +9,9 @@ function ChatBubble({
 }) {
 	return (
 		<div className={`my-2 w-full flex ${className}`}>
-			<p className="bg-sec px-6 py-3 rounded-full max-w-[35%]">{text}</p>
+			<p className="text-sm sm:text-md bg-sec px-[8%] py-5 rounded-full max-w-[35%]">
+				{text}
+			</p>
 		</div>
 	);
 }
