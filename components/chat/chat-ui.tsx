@@ -2,13 +2,13 @@
 import { MqttClient } from "mqtt";
 import { useCallback, useDeferredValue, useEffect, useState } from "react";
 import { initializeMQTTClient } from "scripts/mqtt-client";
-import { UserMeta } from "scripts/utils";
+import { nonSensitiveUserMeta, UserMeta } from "scripts/utils";
 import ChatBubbles from "./chat-bubbles";
 import ChatInput from "./chat-input";
 import Sidebar from "./sidebar";
 
 export default function ChatUI() {
-	const [topic, setTopic] = useState("ss");
+	const [topic, setTopic] = useState("default-topic");
 	const previousTopic = useDeferredValue(topic);
 	const [messages, setMessages] = useState<
 		{
@@ -20,6 +20,14 @@ export default function ChatUI() {
 		null,
 	);
 	const [uid, setUid] = useState<string>("");
+
+	/* Subscribe to last connected user / user from search redirect (RUN ONCE)*/
+	useEffect(() => {
+		const { uid }: nonSensitiveUserMeta = JSON.parse(
+			localStorage.getItem("peermeta") ?? "{}",
+		);
+		setTopic(uid);
+	}, []);
 
 	// Function to handle received messages
 	const handleMessage = useCallback(

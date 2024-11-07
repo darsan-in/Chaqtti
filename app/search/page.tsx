@@ -50,6 +50,15 @@ export default function Search() {
 		}
 	}, [isAscending]);
 
+	const [firstPartyID, setFirstPartyID] = useState("");
+	useEffect(() => {
+		const { uid }: nonSensitiveUserMeta = JSON.parse(
+			localStorage.getItem("usermeta") ?? "",
+		);
+
+		setFirstPartyID(uid);
+	}, []);
+
 	return (
 		<main className="flex justify-center items-center w-full">
 			<section className="flex flex-col space-y-10 bg-einner min-h-[84vh] w-[98%] mx-auto mt-3 rounded-xl pb-10">
@@ -63,11 +72,14 @@ export default function Search() {
 					}}
 				/>
 				<UserListing
+					firstPartyID={firstPartyID}
+					setTopic={() => {}}
 					usersMetaList={userList.slice(
 						usersSliceRange.start,
 						usersSliceRange.end,
 					)}
-					className=""
+					className="space-y-5"
+					redirectToRoot
 				/>
 				<Pagination
 					usersPerPage={usersPerPage}

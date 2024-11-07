@@ -1,11 +1,38 @@
+import { searchUser } from "scripts/postman";
+import { nonSensitiveUserMeta } from "scripts/utils";
+
 // Search Box component
-export default function SearchBox({ ...props }) {
+export default function SearchBox({
+	placeholder,
+	setUserList,
+}: {
+	placeholder?: string;
+	setUserList: (userList: nonSensitiveUserMeta[]) => void;
+}) {
+	async function query() {
+		/* @ts-ignore */
+		const userQuery = document.getElementById("peer-search").value;
+
+		const queryResponse = await searchUser({ userQuery: userQuery });
+
+		if (queryResponse.success) {
+			const sortedList: nonSensitiveUserMeta[] = queryResponse.usersList;
+
+			setUserList(sortedList.slice(0, 2));
+		} else {
+			console.error(queryResponse.message);
+			setUserList([]);
+		}
+	}
+
 	return (
 		<div className="relative w-full">
 			<input
-				{...props}
+				id="peer-search"
 				type="email"
 				className="w-[85%] pl-6 pr-5 py-3 bg-white text-sm text-gray-500  outline-none border border-primary ring-primary focus:ring-2 shadow-sm rounded-full duration-200"
+				onInput={query}
+				placeholder={placeholder}
 			/>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

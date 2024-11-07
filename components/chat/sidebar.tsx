@@ -7,22 +7,6 @@ import { CgClose } from "react-icons/cg";
 import { nonSensitiveUserMeta } from "scripts/utils";
 import UserListing from "./user-listing";
 
-// Example hardcoded user list
-const userLists: nonSensitiveUserMeta[] = [
-	{
-		name: "DARSAN",
-		email: "darsan@cresteem.com",
-		profilePicture: "/user-profile-images/cat.jpg",
-		uid: "@darsan.cresteem.com",
-	},
-	{
-		name: "Eminem",
-		email: "eminem@cresteem.com",
-		profilePicture: "/user-profile-images/cat.jpg",
-		uid: "@eminem.cresteem.com",
-	},
-];
-
 export default function Sidebar({
 	userID,
 	setTopic,
@@ -31,6 +15,10 @@ export default function Sidebar({
 	setTopic: (topic: string) => void;
 }) {
 	const [active, setActive] = useState(false);
+
+	const [usersList, setUsersList] = useState<nonSensitiveUserMeta[]>(
+		[] as nonSensitiveUserMeta[],
+	);
 
 	// Toggle sidebar visibility
 	const toggleSidebar = () => setActive((prevState) => !prevState);
@@ -50,14 +38,17 @@ export default function Sidebar({
 					active ? "" : "hidden"
 				}`}>
 				<div className="px-4 md:px-8 mt-5">
-					<SearchBox placeholder="Search..." />
+					<SearchBox
+						placeholder="Search..."
+						setUserList={setUsersList}
+					/>
 				</div>
 				{/* User listing */}
 				<UserListing
 					firstPartyID={userID}
 					setTopic={setTopic}
-					usersMetaList={userLists}
-					className="w-[90%]"
+					usersMetaList={usersList}
+					className="w-[90%] space-y-5"
 				/>
 			</div>
 		</aside>
