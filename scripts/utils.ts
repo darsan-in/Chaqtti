@@ -1,3 +1,23 @@
+import * as crypto from "crypto";
+
+//Generate a reproducible, unique topic name from two user IDs
+export function generateUniqueTopic(
+	userId1: string,
+	userId2: string,
+): string {
+	// Sort user IDs to make the process order-insensitive
+	const userIds = [userId1, userId2].sort((a, b) => a.localeCompare(b));
+
+	// Concatenate the sorted user IDs into a string
+	const combined = userIds.join("-");
+
+	// Hash the combined string (use SHA-256 for a fixed-length hash)
+	const hash = crypto.createHash("sha256").update(combined).digest("hex");
+
+	// Return the hash as the unique topic name
+	return hash;
+}
+
 export interface UserMeta extends nonSensitiveUserMeta {
 	password: string;
 }

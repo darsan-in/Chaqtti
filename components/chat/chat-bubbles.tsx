@@ -6,32 +6,41 @@ function ChatBubble({
 	className?: string;
 }) {
 	return (
-		<div className={"w-full flex " + className}>
-			<p className={"bg-sec px-6 py-3 rounded-full max-w-[35%]"}>{text}</p>
+		<div className={`my-2 w-full flex ${className}`}>
+			<p className="bg-sec px-6 py-3 rounded-full max-w-[35%]">{text}</p>
 		</div>
 	);
 }
 
 export default function ChatBubbles({
+	userID,
 	texts,
 	className,
 }: {
-	texts: string[];
+	userID: string;
+	texts: {
+		userId: string;
+		message: string;
+	}[];
 	className?: string;
 }) {
 	return (
-		<div className={" " + className}>
-			{texts.map((text, idx) => {
-				return (
+		<div className={className}>
+			{texts.length > 0 ? (
+				texts.map((signedMessage, idx) => (
 					<ChatBubble
-						text={text}
 						key={idx}
+						text={signedMessage.message}
 						className={
-							(idx + 1) % 2 === 0 ? "justify-start" : "justify-end"
+							signedMessage.userId === userID
+								? "justify-end"
+								: "justify-start"
 						}
 					/>
-				);
-			})}
+				))
+			) : (
+				<p className="text-center text-gray-500">No messages yet</p> // Placeholder for empty state
+			)}
 		</div>
 	);
 }

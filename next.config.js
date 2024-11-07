@@ -7,6 +7,7 @@ const nextConfig = {
 	distDir: "./out",
 	basePath: "",
 	assetPrefix: "",
+	reactStrictMode: false,
 };
 
 module.exports = nextConfig;

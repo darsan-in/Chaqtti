@@ -138,5 +138,12 @@
     "password": "$2b$10$ZH8dSYZK8sNTBxplAhD.tue3q3zdf9Vo5pRj3aHUpZdGs21fYUg0a",
     "profilePicture": "/user-profile-images/cat.jpg",
     "uid": "@saravan.cresteem.com"
+  },
+  {
+    "name": "Eminem",
+    "email": "eminem@cresteem.com",
+    "password": "$2b$10$t6mWx04cu1BN3TP5NZieEOawYv1LdVHX4/woi4AQ8AfrqCysldcli",
+    "profilePicture": "/user-profile-images/cat.jpg",
+    "uid": "@eminem.cresteem.com"
   }
 ]
