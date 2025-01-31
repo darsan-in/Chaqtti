@@ -1,14 +1,52 @@
-import { readFileSync, writeFileSync } from "fs";
-import { resolve } from "path";
+import { MongoClient, ServerApiVersion } from "mongodb";
 import { UserMeta } from "./utils";
 
-const filePath = resolve(process.cwd(), "db/users.json");
+const uri = `mongodb+srv://darsan:${"0yrVtQfOiHVK16D9"}@cresteem.hikzg.mongodb.net/?retryWrites=true&w=majority&appName=cresteem`;
 
-export function readUsers(): UserMeta[] {
-	const data = readFileSync(filePath, "utf8");
-	return JSON.parse(data);
+const client = new MongoClient(uri, {
+	serverApi: {
+		version: ServerApiVersion.v1,
+		strict: true,
+		deprecationErrors: true,
+	},
+});
+
+async function connectToDb() {
+	try {
+		await client.connect();
+		const db = client.db("chaqtti");
+		return { client, db };
+	} catch (err) {
+		console.error(err);
+		return;
+	}
 }
 
-export function writeUsers(users: UserMeta[]) {
-	writeFileSync(filePath, JSON.stringify(users, null, 2), "utf8");
+export async function readUsers(): Promise<UserMeta[] | any> {
+	const connection = await connectToDb();
+	if (!connection) {
+		throw new Error("Failed to connect to the database");
+	}
+	const { client, db } = connection;
+	try {
+		const collection = db.collection("users");
+		return await collection.find({}).toArray();
+	} finally {
+		client.close();
+	}
+}
+
+export async function writeUsers(users: UserMeta[]): Promise<void> {
+	const connection = await connectToDb();
+	if (!connection) {
+		throw new Error("Failed to connect to the database");
+	}
+	const { client, db } = connection;
+	try {
+		const collection = db.collection("users");
+		await collection.deleteMany({});
+		await collection.insertMany(users);
+	} finally {
+		client.close();
+	}
 }

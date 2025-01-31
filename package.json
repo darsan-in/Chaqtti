@@ -16,10 +16,10 @@
   "private": true,
   "scripts": {
     "dev": "pm2 start message-broker/broker.js && next dev --turbopack",
-	"fdev":"pm2 stop message-broker/broker.js && pm2 start message-broker/broker.js && next dev --turbopack",
+    "fdev": "pm2 stop message-broker/broker.js && pm2 start message-broker/broker.js && next dev --turbopack",
     "build": "next build",
     "start": "pm2 start message-broker/broker.js && next start",
-	"fstart":"pm2 stop message-broker/broker.js && pm2 start message-broker/broker.js && next start"
+    "fstart": "pm2 stop message-broker/broker.js && pm2 start message-broker/broker.js && next start"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.1",
@@ -31,6 +31,7 @@
     "bcrypt": "^5.1.1",
     "favicons": "^7.2.0",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.13.0",
     "mqtt": "^5.10.1",
     "next": "^15.0.2",
     "pm2": "^5.4.2",
