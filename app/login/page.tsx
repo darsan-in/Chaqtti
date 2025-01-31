@@ -53,6 +53,7 @@ export default function Login() {
 							location.assign("/");
 						} else {
 							alert(authResponse.message);
+							console.log(authResponse.error ?? "");
 						}
 						/*  */
 					}}

@@ -51,6 +51,7 @@ export async function POST(req: Request) {
 			{
 				message: "An error occurred during registration.",
 				success: false,
+				error: error,
 			},
 			{ status: 500 },
 		);

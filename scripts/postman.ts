@@ -5,6 +5,7 @@ export interface AuthResponse {
 	message: string;
 	token?: string;
 	usermeta?: nonSensitiveUserMeta | string;
+	error?: null | string;
 }
 
 function handleResponse(response: Response) {
