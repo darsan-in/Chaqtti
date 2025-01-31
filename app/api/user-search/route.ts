@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 	}
 
 	try {
-		const users: UserMeta[] = readUsers();
+		const users: UserMeta[] = await readUsers();
 
 		const matchedUsers = users.filter((user: UserMeta) =>
 			user.uid.includes(userQuery),

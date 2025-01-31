@@ -18,7 +18,7 @@ export async function POST(req: Request) {
 	}
 
 	try {
-		const users = readUsers();
+		const users = await readUsers();
 
 		const user = users.find((user: any) => user.email === email);
 		if (!user) {

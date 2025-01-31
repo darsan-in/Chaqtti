@@ -4,7 +4,7 @@ import { UserMeta } from "scripts/utils";
 
 export async function GET(_req: Request) {
 	try {
-		const users: UserMeta[] = readUsers();
+		const users: UserMeta[] = await readUsers();
 
 		return NextResponse.json(
 			{

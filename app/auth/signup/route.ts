@@ -14,7 +14,7 @@ export async function POST(req: Request) {
 	}
 
 	try {
-		const users: UserMeta[] = readUsers();
+		const users: UserMeta[] = await readUsers();
 
 		// Check if the user already exists
 		const existingUser = users.find((user: any) => user.email === email);
@@ -40,7 +40,7 @@ export async function POST(req: Request) {
 		users.push(newUser);
 
 		// Write the updated users array back to the JSON file
-		writeUsers(users);
+		await writeUsers(users);
 
 		return NextResponse.json(
 			{ message: "User registered successfully.", success: true },

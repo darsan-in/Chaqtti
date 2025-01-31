@@ -22,7 +22,7 @@ async function connectToDb() {
 	}
 }
 
-export async function readUsers(): Promise<UserMeta[] | any> {
+export async function readUsers(): Promise<UserMeta[]> {
 	const connection = await connectToDb();
 	if (!connection) {
 		throw new Error("Failed to connect to the database");
@@ -30,7 +30,7 @@ export async function readUsers(): Promise<UserMeta[] | any> {
 	const { client, db } = connection;
 	try {
 		const collection = db.collection("users");
-		return await collection.find({}).toArray();
+		return (await collection.find({}).toArray()) as unknown as UserMeta[];
 	} finally {
 		client.close();
 	}
