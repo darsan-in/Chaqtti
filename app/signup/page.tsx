@@ -51,6 +51,7 @@ export default function Signup() {
 								location.assign("/login");
 							} else {
 								alert(authResponse.message);
+								console.log(authResponse.error ?? "");
 							}
 						}}
 						className="mt-8 space-y-5 w-full max-w-sm flex-col flex">
